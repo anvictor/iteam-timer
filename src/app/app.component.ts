@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {AppTimerComponent} from './timer.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +15,13 @@ export class AppComponent {
   waitFirstClick: Date;
   waitDeltaInterval: number;
   clicked() {
-    switch (event.target.innerText) {
+    let checked: string;
+    try {
+      checked = event.target.innerText;
+    } catch (e) {
+      console.log(e);
+    }
+    switch (checked) {
     case 'Start':
       {
         this.isCurrent = true;
