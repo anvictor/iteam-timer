@@ -15,13 +15,8 @@ export class AppComponent {
   waitFirstClick: Date;
   waitDeltaInterval: number;
   clicked() {
-    let checked: string;
-    try {
-      checked = event.target.innerText;
-    } catch (e) {
-      console.log(e);
-    }
-    switch (checked) {
+    const checked = event.target as HTMLTextAreaElement;
+    switch (checked.innerText) {
     case 'Start':
       {
         this.isCurrent = true;
